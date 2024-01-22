@@ -72,3 +72,13 @@ figure
 plot(n2,neffTE);
 xlabel('ridge index')
 ylabel('Neff')
+
+%As the index drops, the mode is lowered, the light starts to leak out of
+%the ridge. Eventually we get to a point where the mode is no longer in the
+%ridge
+
+%Mode 10, system becomes Hx Dominant
+
+%The index we are changing is the refractive index of the material. This
+%indicates how much light slows down when it enters this material
+% TE and TM are determined by this index

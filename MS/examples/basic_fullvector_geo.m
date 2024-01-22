@@ -72,3 +72,16 @@ figure
 plot(rw,neffTE);
 xlabel('ridge width')
 ylabel('Neff')
+
+%b)
+%As the Ridge gets narrower, the mode doesn't change too much until about
+%the 8th mode, at this point the light cannot run itno the waveguide ,
+%until it is fully forced out in the 10th mode
+
+%During the 10th mode it isn't confined in the ridge anymore, it is beneath
+%the ridge, and we wouldn't consider it a propagating waveguide anymore
+
+%c)
+%If we multiply the dx and dy by 8, our Neff values seem to be fewer and
+%less precise, but the simulation speeds up tremendously, if we divid the
+%opposite happens
