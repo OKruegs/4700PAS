@@ -34,7 +34,7 @@ c_eta_0 = sqrt(c_mu_0/c_eps_0);
 % Define constants related to electromagnetic waves.
 
 tSim = 200e-15
-f = 300e12;
+f = 600e12;
 lambda = c_c/f;
 % Set simulation time, frequency, and wavelength.
 
@@ -51,15 +51,17 @@ mu{1} = ones(nx{1},ny{1})*c_mu_0;
 epi{1} = ones(nx{1},ny{1})*c_eps_0; %adds inclusions
 %epi{1}(125:150,55:95)= c_eps_0*11.3;
 
+epi{1}(1:200,60:80)= c_eps_0*11.3;
+
 %added inclusion
 epi{1}(1:20,80:150)= c_eps_0*11.3;
 epi{1}(1:20,1:60)= c_eps_0*11.3;
 
-epi{1}(181:200,80:150)= c_eps_0*8.3;
-epi{1}(181:200,1:60)= c_eps_0*8.3;
+epi{1}(181:200,80:150)= c_eps_0*11.3;
+epi{1}(181:200,1:60)= c_eps_0*11.3;
 
-epi{1}(120:160,80:150)= c_eps_0*8.3;
-epi{1}(120:160,1:60)= c_eps_0*8.3;
+epi{1}(120:160,80:150)= c_eps_0*11.3;
+epi{1}(120:160,1:60)= c_eps_0*11.3;
 
 epi{1}(50:90,80:150)= c_eps_0*11.3;
 epi{1}(50:90,1:60)= c_eps_0*11.3;
@@ -94,14 +96,13 @@ bc{1}.s(1).xpos = nx{1}/4 + 1;
 bc{1}.s(1).type = 'ss';
 bc{1}.s(1).fct = @PlaneWaveBC;
 
-
 % Source 2
-bc{1}.s(2).xpos = 3 * nx{1}/4 + 1;
+bc{1}.s(2).xpos = nx{1}/5 + 1;
 bc{1}.s(2).type = 'ss';
 bc{1}.s(2).fct = @PlaneWaveBC;
 
 % Source 3
-bc{1}.s(3).xpos = nx{1}/2 + 1;
+bc{1}.s(3).xpos = nx{1}/2;
 bc{1}.s(3).type = 'ss';
 bc{1}.s(3).fct = @PlaneWaveBC;
 
@@ -116,8 +117,8 @@ s = 0;              % Skewness parameter (set to 0)
 y0 = yMax/2;        % Initial y-position of the source
 sty = 1.5*lambda;   % Spatial width of the source
 bc{1}.s(1).paras = {mag,phi,omega,betap,t0,st,s,y0,sty,'s'};
-bc{1}.s(2).paras = {mag, phi + 45, omega, betap, t0, -0.05, s, y0, sty, 's'};
-bc{1}.s(3).paras = {mag, phi - 45, omega, betap, t0, -0.05, s, y0, sty, 's'};
+bc{1}.s(2).paras = {mag, phi + 45, omega, betap, t0, st, s, y0, sty, 's'};
+bc{1}.s(3).paras = {mag, phi - 45, omega, betap, t0, st, s, y0, sty, 's'};
 % Set parameters for the plane wave source.
 
 Plot.y0 = round(y0/dx);
