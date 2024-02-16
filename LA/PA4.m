@@ -2,10 +2,11 @@ set(0,'DefaultFigureWindowStyle','docked')
 
 nx = 100;
 ny = 100;
-ni = 10000;
+ni = 5000;
 v = zeros(nx,ny);
 
 % Boundary Conditions
+%Lefy Right 1, Top Bottom
 v(:,1) = 1;  % Left boundary
 v(:,end) = 1; % Right boundary
 v(1,:) = 0; %v(2,:);   % Top boundary

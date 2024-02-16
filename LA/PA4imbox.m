@@ -6,6 +6,7 @@ ni = 5000;
 v = zeros(nx,ny);
 
 % Set initial boundary conditions
+%imbox
 v(:,1) = 1;  % Left boundary
 v(:,end) = 0; % Right boundary
 
